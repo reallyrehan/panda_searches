@@ -4,7 +4,7 @@ import pandas as pd
 from tqdm.auto import tqdm
 
 @pd.api.extensions.register_dataframe_accessor("ps")
-class PandaSearch:
+class PandaSearches:
     def __init__(self,pandas_obj = None):
         self.tqdm_flag=None
         self.df = pandas_obj
