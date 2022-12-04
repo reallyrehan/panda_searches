@@ -85,10 +85,20 @@ class PandaSearches:
         print("============")
 
     def __fetch(self,tup):
-        col,key = tup
         
-        temp_ls = []
+        col,key_initial = tup
         
+        if callable(key_initial):
+            func = key_initial
+            key = []
+            
+            key = list(self.index_dictionary[col].keys())
+            
+            key = [i for i in key if func(i)]    
+        else:
+            key = key_initial
+            
+                    
         if isinstance(key,list):
             
             temp_ls = []
